@@ -8,7 +8,7 @@ set guifont=Monaco:h16 shell=/bin/bash mouse=
 set path+=** wildmenu
 
 " cursor line + turn off line highlights
-set cursorline 
+set cursorline number
 highlight CursorLine guibg=NONE
 
 
@@ -19,8 +19,8 @@ nnoremap gV `[v`]
 set number relativenumber
 augroup numbering
 	 autocmd! 
-	 autocmd BufEnter,FocusGained,InsertLeave * set relativenumber nonumber
-	 autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber number
+	 autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+	 autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
 " folding
@@ -48,3 +48,11 @@ nnoremap <leader>r :wa<CR>:source ~/.vim/session<CR>
 " shortcut for commenting c code
 let @c = 'I//j'
 
+" easier macros
+nnoremap Q @q
+
+" disabling mouse controls
+nnoremap <ScrollWheelUp> <nop>
+nnoremap <ScrollWheelDown> <nop> 
+nnoremap <ScrollWheelLeft> <nop> 
+nnoremap <ScrollWheelRight> <nop> 
