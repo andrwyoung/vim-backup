@@ -30,6 +30,16 @@ augroup END
 highlight CursorLine guibg=NONE
 
 
+" snippets and the like
+nnoremap \f afprintf(stderr, "");<esc>F"
+nnoremap \c :-1read $HOME/.vim/snippets/csnips.c<CR>zr5j
+
+" macros
+let @c = 'I//j'
+
+
+
+
 
 
 " remap leader to comma
@@ -43,12 +53,16 @@ nnoremap <leader>w :w<CR>
 nnoremap <leader>s :mksession! ~/.vim/session<CR>:wa<CR>
 nnoremap <leader>r :wa<CR>:source ~/.vim/session<CR>
 
-" macros
-let @c = 'I//j'
-nnoremap Q @
-
 " make
 nnoremap <leader>m :make<CR>
 
 "clear highlights
 nnoremap <silent> <C-L> :let @/=""<CR><C-L>
+
+" go to next/previous errors
+nnoremap <leader>n :cn<CR>
+nnoremap <leader>p :cp<CR>
+
+" adding line above and below
+nnoremap <space> mmo<esc>`m
+nnoremap <s-space> mmO<esc>`m
