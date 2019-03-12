@@ -1,6 +1,7 @@
-" coloring and view
+"  coloring and view
 syntax on
-colorscheme dracula
+" colorscheme dracula
+colorscheme cottoncandy
 set guifont=Monaco:h16
 set list
 
@@ -31,12 +32,6 @@ augroup numbering
 augroup END
 highlight CursorLine guibg=NONE
 
-" don't create netrwhist
-augroup netrwhist
-	autocmd!
-	autocmd VimLeave * call delete("~/.vim/.netrwhist") | bdelete!
-augroup END
-
 
 
 " snippets and the like
@@ -46,15 +41,17 @@ nnoremap \c :-1read $HOME/.vim/snippets/csnips.c<cr>zr5j
 " m_indentmove.vim mappings
 onoremap <leader>[ :call SameIndent(0)<cr>
 onoremap <leader>] :call SameIndent(1)<cr>
-onoremap <leader>{ :call NextIndent(0, 1)<cr>
-onoremap <leader>} :call NextIndent(1, 1)<cr>
+onoremap <leader>J :call NextIndent(1, -1)<cr>
+onoremap <leader>j :call NextIndent(1, 1)<cr>
+onoremap <leader>K :call NextIndent(0, -1)<cr>
+onoremap <leader>k :call NextIndent(0, 1)<cr>
 
 nnoremap <leader>[ :call SameIndent(0)<cr>
 nnoremap <leader>] :call SameIndent(1)<cr>
-nnoremap <leader>h :call NextIndent(1, -1)<cr>^^
-nnoremap <leader>H :call NextIndent(0, -1)<cr>^^
-nnoremap <leader>l :call NextIndent(1, 1)<cr>^^
-nnoremap <leader>L :call NextIndent(0, 1)<cr>^^
+nnoremap <leader>J :call NextIndent(1, -1)<cr>
+nnoremap <leader>j :call NextIndent(1, 1)<cr>
+nnoremap <leader>K :call NextIndent(0, -1)<cr>
+nnoremap <leader>k :call NextIndent(0, 1)<cr>
 
 
 

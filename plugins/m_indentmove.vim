@@ -2,7 +2,7 @@
 " level: how many indent levels forward
 function! NextIndent(direction, level)
 	let line = line('.')
-	let column = col('.')
+	" let column = col('.')
 	let lastline = line('$')
 	let indent = indent(line) 
 	let stepvalue = a:direction ? 1 : -1
@@ -15,9 +15,9 @@ function! NextIndent(direction, level)
 		if (indent(line) == indent + a:level * 8
 			\ && strlen(getline(line)) > 0)
 			" go to new line
-			execute line
+			execute "normal" . line . "G"
 			" go to original column (indents are offset)
-			execute "normal" . (indent / 8 + column) . "|"
+			" execute "normal" . (indent / 8 + column) . "|"
 			return
 		endif
 	endwhile
@@ -28,7 +28,7 @@ endfunction
 	" more indents or is blank line
 function! SameIndent(direction)
 	let line = line('.')
-	let column = col('.')
+	" let column = col('.')
 	let lastline = line('$')
 	let stepvalue = a:direction ? 1 : -1
 	let indent = indent(line) 
@@ -49,7 +49,7 @@ function! SameIndent(direction)
 			endif
 			if(indent(line) == indent)
 				execute line
-				execute "normal" . (indent / 8 + column) . "|"
+				" execute "normal" . (indent / 8 + column) . "|"
 				return
 			endif
 
@@ -57,7 +57,7 @@ function! SameIndent(direction)
 		else
 			if(indent(line) != indent)
 				execute line - stepvalue
-				execute "normal" . (indent / 8 + column) . "|"
+				" execute "normal" . (indent / 8 + column) . "|"
 				return
 			endif
 		endif
