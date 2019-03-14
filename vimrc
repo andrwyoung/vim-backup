@@ -34,29 +34,6 @@ highlight CursorLine guibg=NONE
 
 
 
-" snippets and the like
-nnoremap \f afprintf(stderr, "");<esc>F"
-nnoremap \c :-1read $HOME/.vim/snippets/csnips.c<cr>zr5j
-
-" m_indentmove.vim mappings
-onoremap <leader>[ :call SameIndent(0)<cr>
-onoremap <leader>] :call SameIndent(1)<cr>
-onoremap <leader>J :call NextIndent(1, -1)<cr>
-onoremap <leader>j :call NextIndent(1, 1)<cr>
-onoremap <leader>K :call NextIndent(0, -1)<cr>
-onoremap <leader>k :call NextIndent(0, 1)<cr>
-
-nnoremap <leader>[ :call SameIndent(0)<cr>
-nnoremap <leader>] :call SameIndent(1)<cr>
-nnoremap <leader>J :call NextIndent(1, -1)<cr>
-nnoremap <leader>j :call NextIndent(1, 1)<cr>
-nnoremap <leader>K :call NextIndent(0, -1)<cr>
-nnoremap <leader>k :call NextIndent(0, 1)<cr>
-
-
-
-
-
 " macros
 let @c = 'I//j'
 
@@ -71,6 +48,11 @@ exec "source" . plugs . "repeat.vim"
 "mine
 exec "source" . plugs . "m_indentmove.vim"
 
+
+
+" snippets and the like
+nnoremap \f afprintf(stderr, "");<esc>F"
+nnoremap \c :-1read $HOME/.vim/snippets/csnips.c<cr>zr5j
 
 
 " remap leader to comma
@@ -105,6 +87,26 @@ inoremap <c-w> <c-g>u<c-w>
 " easier clipboard copy and pasting
 nnoremap <leader>d "*d
 nnoremap <leader>y "*y
+nnoremap <leader>c "*c
 
+" easier macros
+nnoremap Q @q
+
+nnoremap <cr> <nop>
 nnoremap - <nop>
 nnoremap + <nop>
+
+" m_indentmove.vim mappings
+onoremap <leader>[ :call SameIndent(0)<cr>
+onoremap <leader>] :call SameIndent(1)<cr>
+onoremap <leader>J :call NextIndent(1, -1)<cr>
+onoremap <leader>j :call NextIndent(1, 1)<cr>
+onoremap <leader>K :call NextIndent(0, -1)<cr>
+onoremap <leader>k :call NextIndent(0, 1)<cr>
+
+nnoremap <leader>[ :call SameIndent(0)<cr>
+nnoremap <leader>] :call SameIndent(1)<cr>
+nnoremap <leader>J :call NextIndent(1, -1)<cr>
+nnoremap <leader>j :call NextIndent(1, 1)<cr>
+nnoremap <leader>K :call NextIndent(0, -1)<cr>
+nnoremap <leader>k :call NextIndent(0, 1)<cr>
