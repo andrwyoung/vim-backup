@@ -1,63 +1,49 @@
-" direction: 1 forward 0 back
-" level: how many indent levels forward
-function! NextIndent(direction, level)
+" go to next line with different indent (no blank lines)
+function! NextIndent(direction)
 	let line = line('.')
-	" let column = col('.')
 	let lastline = line('$')
 	let indent = indent(line) 
-	let stepvalue = a:direction ? 1 : -1
 
-	"looping through each line in direction
+	" looping through each line in direction
 	while(line > 0 && line <= lastline)
-		let line += stepvalue
-
+		let line += a:direction
+		
 		" check which indent line matches up
-		if (indent(line) == indent + a:level * 8
-			\ && strlen(getline(line)) > 0)
-			" go to new line
+		if(indent(line) != indent && strlen(getline(line)) >0)
+			" go to line
 			execute "normal" . line . "G"
-			" go to original column (indents are offset)
-			" execute "normal" . (indent / 8 + column) . "|"
 			return
 		endif
 	endwhile
 endfunction
 
-" direction: 1 forward 0 back
-" chasm is defined as any contiguous lines that have
-	" more indents or is blank line
+" go to next line with same indent
+" then keep going for as long as possible
 function! SameIndent(direction)
 	let line = line('.')
-	" let column = col('.')
 	let lastline = line('$')
-	let stepvalue = a:direction ? 1 : -1
 	let indent = indent(line) 
-	" is next one start of a chasm?
-	let done = 0
-	let jumpmode = strlen(getline(line + stepvalue)) == 0
-		\ || indent(line + stepvalue) > indent
+
+	" is next line different indent?
+	let jumpmode = strlen(getline(line + a:direction)) == 0
+		\ || indent(line + a:direction) != indent
 
 	while(line > 0 && line <= lastline)
-		let line += stepvalue
+		let line += a:direction
 
-		" jumping over chasm: move to next block with same line
+		"if jumpmode. keep going until find a line with same indent
 		if(jumpmode)
-			if(indent(line) < indent && 
-				\ strlen(getline(line)) != 0)
-				echo "returning!"
-				return
-			endif
-			if(indent(line) == indent)
+			if(indent(line) == indent
+				\ && strlen(getline(line)) != 0)
+				let jumpmode = 0
 				execute line
-				" execute "normal" . (indent / 8 + column) . "|"
-				return
+				echo "found!"
 			endif
 
-		" not jumping over a chasm: go to end of paragraph
 		else
-			if(indent(line) != indent)
-				execute line - stepvalue
-				" execute "normal" . (indent / 8 + column) . "|"
+			if(indent(line) != indent 
+				\ || indent == 0 && strlen(getline(line)) == 0)
+				execute line - a:direction
 				return
 			endif
 		endif

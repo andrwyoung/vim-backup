@@ -1,4 +1,5 @@
 let g:colors_name = 'template'
+set background = light
 
 " palette
 let s:fg	=["#000000", 232]

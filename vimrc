@@ -1,7 +1,7 @@
 "  coloring and view
 syntax on
 " colorscheme dracula
-colorscheme cottoncandy
+colorscheme template
 set guifont=Monaco:h16
 set list
 
@@ -11,7 +11,7 @@ set foldnestmax=1 foldmethod=syntax
 set autoindent
 set whichwrap+=h
 
-set shell=/bin/bash mouse= 
+set shell=/bin/bash mouse=a
 set showcmd
 set shortmess+=I
 
@@ -97,16 +97,16 @@ nnoremap - <nop>
 nnoremap + <nop>
 
 " m_indentmove.vim mappings
-onoremap <leader>[ :call SameIndent(0)<cr>
+onoremap <leader>[ :call SameIndent(-1)<cr>
 onoremap <leader>] :call SameIndent(1)<cr>
-onoremap <leader>J :call NextIndent(1, -1)<cr>
-onoremap <leader>j :call NextIndent(1, 1)<cr>
-onoremap <leader>K :call NextIndent(0, -1)<cr>
-onoremap <leader>k :call NextIndent(0, 1)<cr>
+onoremap <leader>J :call NextIndent(1)<cr>
+onoremap <leader>j :call NextIndent(1)<cr>
+onoremap <leader>K :call NextIndent(-1)<cr>
+onoremap <leader>k :call NextIndent(-1)<cr>
 
-nnoremap <leader>[ :call SameIndent(0)<cr>
+nnoremap <leader>[ :call SameIndent(-1)<cr>
 nnoremap <leader>] :call SameIndent(1)<cr>
-nnoremap <leader>J :call NextIndent(1, -1)<cr>
-nnoremap <leader>j :call NextIndent(1, 1)<cr>
-nnoremap <leader>K :call NextIndent(0, -1)<cr>
-nnoremap <leader>k :call NextIndent(0, 1)<cr>
+nnoremap <leader>J :call NextIndent(1)<cr>
+nnoremap <leader>j :call NextIndent(1)<cr>
+nnoremap <leader>K :call NextIndent(-1)<cr>
+nnoremap <leader>k :call NextIndent(-1)<cr>
