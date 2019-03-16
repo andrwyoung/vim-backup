@@ -1,3 +1,6 @@
+" indent move - functions for moving through indents
+" Author: andrwyoung
+
 " go to next line with different indent (no blank lines)
 function! NextIndent(direction)
 	let line = line('.')

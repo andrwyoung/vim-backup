@@ -1,12 +1,13 @@
-"  coloring and view
+" andrwyoung vimrc
+
+" set and augroups {{{
+" coloring and view
 syntax on
 colorscheme watermelon
 set guifont=Monaco:h16
 set list
 
 set nowrap lazyredraw
-" set incsearch hlsearch 
-set foldnestmax=1 foldmethod=syntax
 set autoindent
 set whichwrap+=h
 
@@ -22,6 +23,14 @@ set path+=** wildmenu
 let g:netrw_banner = 0
 let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro' 
 
+" folding
+set foldnestmax=1 foldmethod=syntax
+augroup folding
+	autocmd!
+	autocmd BufRead *.vim,vimrc set foldmethod=marker
+augroup END
+
+
 " numberings
 set number 
 augroup numbering
@@ -30,12 +39,9 @@ augroup numbering
 	autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
+" }}}
 
-
-" macros
-let @c = 'I//j'
-
-
+" loading plugins and functions {{{
 let plugs = "~/.vim/plugins/"
 " which things to load
 exec "source" . plugs . "commentary.vim"
@@ -44,17 +50,30 @@ exec "source" . plugs . "repeat.vim"
 " exec "source" . plugs . "auto-pairs.vim"
 
 "mine
-exec "source" . plugs . "m_indentmove.vim"
+exec "source" . plugs . "indentmove.vim"
 
+" }}}
 
-
-" snippets and the like
-nnoremap \f afprintf(stderr, "");<esc>F"
+" snippets and the like {{{
+" easy fprintf
+nnoremap \f ofprintf(stderr, "");<esc>F"i
+" c code template
 nnoremap \c :-1read $HOME/.vim/snippets/csnips.c<cr>zr5j
 
+" macros
+let @c = 'I//j'
 
+" }}}
+
+" all shortcuts {{{
 " remap leader to comma
 let mapleader = " "
+
+	" jank autopairs
+nnoremap <leader>{ a{}<left><cr><tab><cr><bs><esc>k^a
+nnoremap <leader>" a""<left>
+nnoremap <leader>( a();<left><left>
+
 
 " shortcut for save and quit
 nnoremap <leader>q :q<cr>
@@ -108,3 +127,5 @@ nnoremap <leader>J :call NextIndent(1)<cr>
 nnoremap <leader>j :call NextIndent(1)<cr>
 nnoremap <leader>K :call NextIndent(-1)<cr>
 nnoremap <leader>k :call NextIndent(-1)<cr>
+
+" }}}

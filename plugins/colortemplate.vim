@@ -1,5 +1,7 @@
-" andrwyoung 2018
-" this script is to help determine colors
+" colortemplate - easy changing of colors
+" Author: andrwyoung
+
+" this plugin requires you have another file in .vim/colors that sets these colors:
 " iden: identifiers like variable types and the like
 " cont: control statments (if, for, else)
 " vars: the number themselves (int, bool)
