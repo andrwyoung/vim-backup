@@ -47,10 +47,10 @@ let plugs = "~/.vim/plugins/"
 exec "source" . plugs . "commentary.vim"
 exec "source" . plugs . "surround.vim"
 exec "source" . plugs . "repeat.vim"
-" exec "source" . plugs . "auto-pairs.vim"
 
 "mine
 exec "source" . plugs . "indentmove.vim"
+exec "source" . plugs . "fileswitching.vim"
 
 " }}}
 
@@ -113,7 +113,7 @@ nnoremap <cr> <nop>
 nnoremap - <nop>
 nnoremap + <nop>
 
-" m_indentmove.vim mappings
+" indentmove.vim mappings
 onoremap <leader>[ :call SameIndent(-1)<cr>
 onoremap <leader>] :call SameIndent(1)<cr>
 onoremap <leader>J :call NextIndent(1)<cr>
@@ -128,4 +128,6 @@ nnoremap <leader>j :call NextIndent(1)<cr>
 nnoremap <leader>K :call NextIndent(-1)<cr>
 nnoremap <leader>k :call NextIndent(-1)<cr>
 
+" fileswitching.vim mappings
+nnoremap <leader>h :call SwitchSourceHeader()<cr>
 " }}}
