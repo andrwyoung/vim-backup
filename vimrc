@@ -1,7 +1,6 @@
 "  coloring and view
 syntax on
-" colorscheme dracula
-colorscheme template
+colorscheme watermelon
 set guifont=Monaco:h16
 set list
 
@@ -30,7 +29,6 @@ augroup numbering
 	autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
 	autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
-highlight CursorLine guibg=NONE
 
 
 
