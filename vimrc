@@ -3,7 +3,7 @@
 " set and augroups {{{
 " coloring and view
 syntax on
-colorscheme watermelon
+colorscheme fattermelon
 set guifont=Monaco:h16
 set list
 
@@ -20,6 +20,7 @@ set autowrite
 
 " file traversal
 set path+=** wildmenu
+set wildmode=longest:full,full
 let g:netrw_banner = 0
 let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro' 
 
@@ -51,6 +52,7 @@ exec "source" . plugs . "repeat.vim"
 "mine
 exec "source" . plugs . "indentmove.vim"
 exec "source" . plugs . "fileswitching.vim"
+exec "source" . plugs . "whitespace.vim"
 
 " }}}
 

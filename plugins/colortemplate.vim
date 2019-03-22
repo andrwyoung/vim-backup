@@ -38,7 +38,7 @@ endfunction
 " user interface
 " all default text
 call ChangeHighlight("Normal", g:palette.fg)
-call ChangeHighlight("Cursor", g:palette.NONE, g:palette.lite)
+call ChangeHighlight("Cursor", g:palette.bg, g:palette.fg)
 call ChangeHighlight("Visual", g:palette.NONE, g:palette.lite)
 call ChangeHighlight("VisualNOS", g:palette.NONE, g:palette.lite)
 
