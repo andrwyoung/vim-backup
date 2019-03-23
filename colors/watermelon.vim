@@ -1,3 +1,6 @@
+" watermelon - light colorscheme for thirsty folks
+" AUTHOR: andrwyoung
+
 let g:colors_name = 'watermelon'
 set background=light
 
@@ -18,7 +21,7 @@ let g:palette = {
 	\ 'vars1' : ["#56b3ff", 117],
 	\ 'vars2' : ["#c768ff", 129],
 	\
-	\ 'str1' : ["#44e2b5", 42],
+	\ 'str1' : ["#6cd171", 42],
 	\ 'str2' : ["#ffa149", 215],
 	\
 	\ 'high1' : ["#ff0000", 196],

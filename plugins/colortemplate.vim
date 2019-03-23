@@ -83,7 +83,7 @@ call ChangeHighlight("IncSearch", g:palette.fg, g:palette.high2)
 
 " misc
 call ChangeHighlight("Directory", g:palette.vars1)
-call ChangeHighlight("MatchParen", g:palette.fg, g:palette.high2)
+call ChangeHighlight("MatchParen", g:palette.high2, g:palette.NONE)
 
 " no idea what this does
 call ChangeHighlight("TabLine", g:palette.hmm)

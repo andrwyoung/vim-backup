@@ -3,7 +3,7 @@
 " set and augroups {{{
 " coloring and view
 syntax on
-colorscheme fattermelon
+colorscheme darkrainbow
 set guifont=Monaco:h16
 set list
 
@@ -52,7 +52,6 @@ exec "source" . plugs . "repeat.vim"
 "mine
 exec "source" . plugs . "indentmove.vim"
 exec "source" . plugs . "fileswitching.vim"
-exec "source" . plugs . "whitespace.vim"
 
 " }}}
 
