@@ -24,6 +24,7 @@ endfunction
 " then keep going for as long as possible
 function! SameIndent(direction)
 	let line = line('.')
+	let column = col('.')
 	let lastline = line('$')
 	let indent = indent(line) 
 
@@ -40,13 +41,14 @@ function! SameIndent(direction)
 				\ && strlen(getline(line)) != 0)
 				let jumpmode = 0
 				execute line
-				echo "found!"
+				execute "normal" (column + indent / 8) . "|"
 			endif
 
 		else
 			if(indent(line) != indent 
 				\ || indent == 0 && strlen(getline(line)) == 0)
 				execute line - a:direction
+				execute "normal" (column + indent / 8) . "|"
 				return
 			endif
 		endif

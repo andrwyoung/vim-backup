@@ -11,12 +11,13 @@ set nowrap lazyredraw
 set autoindent
 set whichwrap+=h
 
-set shell=/bin/bash mouse=a
+set shell=/bin/bash mouse=
 set showcmd
 set shortmess+=I
 
 set hidden
 set autowrite
+
 
 " file traversal
 set path+=** wildmenu
@@ -28,9 +29,8 @@ let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 set foldnestmax=1 foldmethod=syntax
 augroup folding
 	autocmd!
-	autocmd BufRead *.vim,vimrc set foldmethod=marker
+	autocmd BufRead,BufNewFile *.vim,vimrc setlocal foldmethod=marker
 augroup END
-
 
 " numberings
 set number 
@@ -40,6 +40,11 @@ augroup numbering
 	autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
+" swapfiles
+augroup swapfiles
+	autocmd!
+	autocmd Swapexists * let v:swapchoice = 'a'
+augroup END
 " }}}
 
 " loading plugins and functions {{{
@@ -52,6 +57,7 @@ exec "source" . plugs . "repeat.vim"
 "mine
 exec "source" . plugs . "indentmove.vim"
 exec "source" . plugs . "fileswitching.vim"
+exec "source" . plugs . "commentmove.vim"
 
 " }}}
 
@@ -70,7 +76,7 @@ let @c = 'I//j'
 " remap leader to comma
 let mapleader = " "
 
-	" jank autopairs
+" jank autopairs
 nnoremap <leader>{ a{}<left><cr><tab><cr><bs><esc>k^a
 nnoremap <leader>" a""<left>
 nnoremap <leader>( a();<left><left>
@@ -106,6 +112,10 @@ inoremap <c-w> <c-g>u<c-w>
 nnoremap <leader>d "*d
 nnoremap <leader>y "*y
 nnoremap <leader>c "*c
+" for visual mode too
+vnoremap d "*d
+vnoremap y "*y
+vnoremap c "*c
 
 " easier macros
 nnoremap Q @q
@@ -113,7 +123,9 @@ nnoremap Q @q
 nnoremap <cr> <nop>
 nnoremap - <nop>
 nnoremap + <nop>
+" }}}
 
+" plugin movements {{{
 " indentmove.vim mappings
 onoremap <leader>[ :call SameIndent(-1)<cr>
 onoremap <leader>] :call SameIndent(1)<cr>
@@ -131,4 +143,8 @@ nnoremap <leader>k :call NextIndent(-1)<cr>
 
 " fileswitching.vim mappings
 nnoremap <leader>h :call SwitchSourceHeader()<cr>
+
+" commentmove.vim mappings
+nnoremap <leader>/ :call NextComment(1)<cr>
+nnoremap <leader>? :call NextComment(-1)<cr>
 " }}}
