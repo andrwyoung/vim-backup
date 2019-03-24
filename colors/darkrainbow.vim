@@ -32,4 +32,4 @@ let g:palette = {
 	\ 'NONE' : ["NONE", "NONE"],
 	\}
 
-execute "source ~/.vim/plugins/colortemplate.vim"
+execute "source ~/.vim/unplug/colortemplate.vim"

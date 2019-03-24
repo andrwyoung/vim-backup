@@ -11,7 +11,7 @@ set nowrap lazyredraw
 set autoindent
 set whichwrap+=h
 
-set shell=/bin/bash mouse=
+set shell=/bin/bash mouse=a
 set showcmd
 set shortmess+=I
 
@@ -45,20 +45,6 @@ augroup swapfiles
 	autocmd!
 	autocmd Swapexists * let v:swapchoice = 'a'
 augroup END
-" }}}
-
-" loading plugins and functions {{{
-let plugs = "~/.vim/plugins/"
-" which things to load
-exec "source" . plugs . "commentary.vim"
-exec "source" . plugs . "surround.vim"
-exec "source" . plugs . "repeat.vim"
-
-"mine
-exec "source" . plugs . "indentmove.vim"
-exec "source" . plugs . "fileswitching.vim"
-exec "source" . plugs . "commentmove.vim"
-
 " }}}
 
 " snippets and the like {{{
@@ -147,4 +133,7 @@ nnoremap <leader>h :call SwitchSourceHeader()<cr>
 " commentmove.vim mappings
 nnoremap <leader>/ :call NextComment(1)<cr>
 nnoremap <leader>? :call NextComment(-1)<cr>
+
+" commenting in visual
+vnoremap <leader>/ :call ToggleComment()<cr>
 " }}}
