@@ -5,7 +5,7 @@
 syntax on
 colorscheme darkrainbow
 set guifont=Monaco:h16
-set list
+"set list
 
 set nowrap lazyredraw
 set autoindent
@@ -97,11 +97,9 @@ inoremap <c-w> <c-g>u<c-w>
 " easier clipboard copy and pasting
 nnoremap <leader>d "*d
 nnoremap <leader>y "*y
-nnoremap <leader>c "*c
 " for visual mode too
 vnoremap d "*d
 vnoremap y "*y
-vnoremap c "*c
 
 " easier macros
 nnoremap Q @q
@@ -136,4 +134,5 @@ nnoremap <leader>? :call NextComment(-1)<cr>
 
 " commenting in visual
 vnoremap <leader>/ :call ToggleComment()<cr>
+noremap <leader>c :call ToggleComment()<cr>
 " }}}

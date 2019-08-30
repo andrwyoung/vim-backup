@@ -5,7 +5,7 @@ augroup commenttype
 	autocmd!
 	autocmd BufRead,BufNewFile *.vim,vimrc let b:commenttype = "\""
 	autocmd BufRead,BufNewFile *.c,*.h,*.cpp let b:commenttype = "\\/\\/"
-	autocmd BufRead,BufNewFile Makefile let b:commenttype = "#"
+	autocmd BufRead,BufNewFile Makefile,*.py let b:commenttype = "#"
 augroup END
 
 
